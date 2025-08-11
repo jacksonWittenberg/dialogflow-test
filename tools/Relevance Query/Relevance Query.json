@@ -1,0 +1,43 @@
+{
+  "name": "25b09cca-568e-4b75-a9f0-82cd501d1ca3",
+  "displayName": "Relevance Query",
+  "description": "Your goal is to act as an INTERNAL signaling tool to determine if the user input is relevant to the $sources.  DO NOT display information to the user.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "PUBLIC_WEB",
+      "dataStore": "projects/882723528425/locations/us/collections/default_collection/dataStores/uia-layout_1750794776945",
+      "documentProcessingMode": "CHUNKS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1750794796,
+        "nanos": 717963000
+      },
+      "displayName": "uia-layout",
+      "dialogflowAddTime": {
+        "seconds": 1753732997,
+        "nanos": 701000000
+      }
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_20_flash_001",
+        "promptText": "Your task is to act as an INTERNAL signaling tool. Given the user's `$original-query` and the provided `$sources`, you MUST determine if the query is **broadly relevant** to the content of the sources.\n\n# Response Generation Instructions\n\n## Critical Rules:\n\n### Relevance Assessment:\n-   Analyze the user's `$original-query` in the context of `$conversation` and the provided `$sources`.\n-   **If ANY snippets are provided in `$sources` that are even broadly related to the `$original-query` (meaning the datastore found *something* that might be relevant, even if not a direct answer):**\n    -   You MUST return the exact internal signal: `INFORMATION_FOUND`.\n-   **ONLY if `$sources` is completely empty, or if ALL provided snippets are entirely irrelevant and off-topic to the `$original-query` (e.g., about a completely different subject, or clearly a misinterpretation):**\n    -   You MUST return the exact internal signal: `NOT_ENOUGH_INFORMATION`.\n\n### Language:\n-   All internal processing MUST be done in English.\n\n### Output Format:\n-   Your entire output MUST be ONLY one of the exact internal signals: `INFORMATION_FOUND` or `NOT_ENOUGH_INFORMATION`.\n-   You MUST NOT include any other text, explanations, or formatting.\n\nSources:\n$sources\n$conversation\nHuman: $original-query\nAI:"
+      },
+      "rewriterModel": {
+        "model": "gemini_25_flash",
+        "promptText": "You observe conversations between a human and an AI assistant.\nYour goal is to generate a search query to determine if the human's last statement is broadly relevant to the provided data sources.\n\n* Always output the best search query you can.\n* Generate a query that is closely related to the user query.\n* Include as much context as necessary from the conversation history (`$conversation`).\n* For the very first turn of a conversation (when `$conversation` is empty), your rewrite MUST rely SOLELY on the `$original-query` and be a direct, accurate rephrasing of it. Do NOT infer context from an empty history.\n* Output a concise search query, and nothing else.\n* Do NOT use quotes or search operators.\n* The query MUST be in English (en). If the `$original-query` is not English, you MUST accurately translate it to English (en) while preserving its exact meaning and intent.\n* **CRITICAL: You MUST NOT generate any `filter` conditions, `fallback` messages, or any other parameters beyond the `query` itself. The output MUST ONLY contain the `query` field.**\n\nConversation History:\n$conversation\nHuman: $original-query\nSearch Query:"
+      }
+    },
+    "groundingSettings": {
+      "groundingConfidence": "LOW"
+    },
+    "payloadSettings": {
+    
+    },
+    "mode": "MODE_CUSTOM"
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

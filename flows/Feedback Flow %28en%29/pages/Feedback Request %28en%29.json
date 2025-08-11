@@ -1,0 +1,62 @@
+{
+  "name": "fdd86398-b34f-4446-9523-905301250fe2",
+  "displayName": "Feedback Request (en)",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "botcopy": [ {
+          "suggestions": [ {
+            "action": {
+              "message": {
+                "command": "![Negative Feedback](https://storage.googleapis.com/html_datastore_test/Thumbs-down2.svg)",
+                "type": "training"
+              }
+            },
+            "ariaLabel": "Negative Feedback",
+            "title": "![Negative Feedback](https://storage.googleapis.com/html_datastore_test/Thumbs-down2.svg)"
+          }, {
+            "action": {
+              "message": {
+                "command": "![Positive Feedback](https://storage.googleapis.com/html_datastore_test/Thumbs-up3.svg)",
+                "type": "training"
+              }
+            },
+            "ariaLabel": "Positive Feedback",
+            "title": "![Positive Feedback](https://storage.googleapis.com/html_datastore_test/Thumbs-up3.svg)"
+          } ]
+        } ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "custom-conversation",
+      "value": "$sys.func.CONCATENATE(\"$session.params.custom-conversation\\n\", \"USER: $request.user-utterance\\n\", \"AGENT: $request.last-agent-utterance\")"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Feedback - Good Response",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Form Confirmation (en)",
+    "name": "8c097a48-4124-4f61-aa6b-0fd9f8641a4c"
+  }, {
+    "intent": "Feedback - Bad Response",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Bad Response (en)",
+    "name": "d6dfa033-64ec-4d5f-8e0d-57c76cf0ddec"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "8a1ca1c4-5eb7-4438-b35e-92f70c034af8",
+    "targetPlaybook": "Conversation Routing"
+  } ]
+}

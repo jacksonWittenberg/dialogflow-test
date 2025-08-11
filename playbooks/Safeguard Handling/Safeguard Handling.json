@@ -1,0 +1,61 @@
+{
+  "name": "bb7f4907-7abb-405f-9716-1d8178893b27",
+  "displayName": "Safeguard Handling",
+  "goal": "Your goal is to respond to the end user with the defined output and then transition back to the Conversation Routing playbook\n",
+  "inputParameterDefinitions": [ {
+    "name": "safeguard_count",
+    "description": "A counting value for the number of times during a user's sessions they have triggered a safeguard response.",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "NUMBER"
+      }
+    },
+    "parameterType": {
+      "name": "safeguard_count",
+      "openapiJsonSchema": {
+        "type": "number"
+      }
+    }
+  }, {
+    "name": "detected_language",
+    "description": "This parameter stores the automatically detected language of the current user's input. Use this language code (en, es, ar, etc.) to translate responses and format outputs specific to the user's preferred language.",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "detected_language",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "fallback_count",
+    "description": "A counting value for the number of times during a user's sessions they have triggered a fallback response.\n",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "NUMBER"
+      }
+    },
+    "parameterType": {
+      "name": "fallback_count",
+      "openapiJsonSchema": {
+        "type": "number"
+      }
+    }
+  } ],
+  "tokenCount": 59,
+  "instruction": {
+    "steps": [ {
+      "text": "Step 1: Agent Response",
+      "steps": [ {
+        "text": "Respond back to the user: \"I am programmed to be a helpful AI assistant.  I cannot fulfill that request.\""
+      } ]
+    } ]
+  },
+  "playbookType": "TASK",
+  "codeBlock": {
+  
+  }
+}

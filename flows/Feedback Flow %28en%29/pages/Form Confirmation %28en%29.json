@@ -1,0 +1,30 @@
+{
+  "name": "462e18b0-8ed2-44db-be9d-1dac1534c951",
+  "displayName": "Form Confirmation (en)",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you for your feedback!" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "comments",
+      "value": null
+    }, {
+      "parameter": "feedback_reasons",
+      "value": "\"{\"Not_Relevant\":null,\"Not_Helpful\":null,\"Other\":null}\"\""
+    } ]
+  },
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "30a6590e-0e2b-41b6-87e4-814b3fe3a6ca",
+    "targetPlaybook": "Conversation Routing"
+  } ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "992b0aa0-4d68-44e6-bcd2-28578ed8877b",
+  "displayName": "Conversation Query",
+  "description": "This tool accesses the State of Michigan Unemployment Insurance Agency (UIA) website to provide users with information from the Michigan UIA web pages and PDFs.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "PUBLIC_WEB",
+      "dataStore": "projects/882723528425/locations/us/collections/default_collection/dataStores/uia-layout_1750794776945",
+      "documentProcessingMode": "CHUNKS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1750794796,
+        "nanos": 717963000
+      },
+      "displayName": "uia-layout",
+      "dialogflowAddTime": {
+        "seconds": 1753733014,
+        "nanos": 659000000
+      }
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_20_flash_001",
+        "promptText": "Your task is to provide a factual answer to the human's query using ONLY the provided web pages: $sources. \n\n- CRITICAL: You MUST NOT generate any `filter` conditions, `fallback` messages, or any other parameters beyond the `query` itself. The output MUST ONLY contain the `query` field.\n\n# Response Generation Instructions\n\n## Critical Rules:\n\n### Source Reliance \u0026 Accuracy:\n-   Use ONLY the provided web pages: $sources.\n-   Reference conversation history: $conversation.\n-   Address the user's original query: $original-query.\n-   Do NOT infer, speculate, or add external information.\n-   If sources conflict or are unclear, state the issue and summarize discrepancies.\n-   NEVER echo back the $original-query or $rewritten-query in your response.\n\n### Language:\n-   All internal processing and the final response MUST be in English.\n\n### Relevance \u0026 Verification:\n-   Prioritize sources that directly answer the query.\n-   All numbers, like price, date, time or phone numbers MUST appear exactly as they are in the sources.\n-   Verify dates, figures, and key details.\n-   Ensure eligibility and time-sensitive information are current.\n\n### Answer Generation Strategy (CRITICAL):\n-   **If the provided `$sources` contain ANY information that is relevant to the `$original-query` (even if it's not a complete, direct answer):**\n    -   **You MUST generate a response to the user.**\n    -   Synthesize the available relevant information from the `$sources`.\n    -   Clearly state any limitations or missing details if the answer is not fully comprehensive.\n    -   If the ambiguity is persona-related, explicitly ask for clarification on the user's role (e.g., \"Are you asking as an employer or a claimant?\").\n    -   **DO NOT return `NOT_ENOUGH_INFORMATION` in this scenario.**\n-   **ONLY if the provided `$sources` are completely empty or contain absolutely no relevant information for the `$original-query` (even after considering partial relevance):**\n    -   You MUST return the exact internal signal: `NOT_ENOUGH_INFORMATION`.\n\n## Formatting \u0026 Readability:\n-   Ensure clear, grammatically correct responses in English.\n-   Use bolding, bullet points, and structured formatting for clarity.\n-   For lists (steps, options), use numbered lists for sequential information and bulleted lists for unordered information.\n-   Ensure all URLs or web addresses provided in the response are presented as clickable markdown links (e.g., `[link text](URL)`).\n\n## Conversational Context Integration:\n-   Always generate responses based on the entire conversation history: $conversation.\n-   Ensure responses build upon and align with prior exchanges to maintain coherence and avoid contradictions.\n-   If the user's intent appears to evolve across turns, synthesize the overall context before responding.\n-   Do not treat each query in isolation—continuity of dialogue is essential.\n\n## Response Guidelines:\n\n### Factual \u0026 Direct Responses:\n-   Give as comprehensive an answer as possible given the sources. Include all important details, and any caveats and conditions that apply.\n-   Do NOT try to make up an answer.\n-   Keep responses concise and user-friendly.\n-   Use only the provided sources without excessive citations.\n\nSources:\n$sources\n\n$conversation\nHuman: $original-query\nAI:"
+      },
+      "rewriterModel": {
+        "model": "gemini_25_flash",
+        "promptText": "You observe conversations between a human and an AI assistant working at the State of Michigan Unemployment Agency.\nYour goal is to perform a search query to help the AI assistant respond to the human's last statement.\n* Before querying the Data store, you MUST translate the $original-query to English.  This step must NEVER be skipped.\n* Always output the best search query you can, even if you suspect it's not needed.\n* Generate a query that is closely related to the user query\n* Include as much context as necessary from the conversation history.\n* Output a concise search query, and nothing else.\n* Don't use quotes or search operators.\n* You MUST NOT generate any `filter` conditions, `fallback` messages, or any other parameters beyond the `query` itself. The output MUST ONLY contain the `query` field.\n\n\n\nConversation History:\n$conversation\nHuman: $original-query\nSearch Query: "
+      }
+    },
+    "groundingSettings": {
+      "groundingConfidence": "LOW"
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 5
+    },
+    "mode": "MODE_CUSTOM"
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

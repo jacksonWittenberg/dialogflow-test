@@ -1,0 +1,10 @@
+{
+  "name": "a91c89ca-b9bc-41d9-aaae-e98153388aba",
+  "displayName": "Feedback - Bad Response",
+  "parameters": [ {
+    "id": "location",
+    "entityType": "@sys.location"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 1
+}

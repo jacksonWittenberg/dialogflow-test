@@ -1,0 +1,55 @@
+{
+  "name": "00000000-0000-0000-0000-000000000000",
+  "displayName": "Default Start Flow",
+  "description": "A start flow created along with the agent",
+  "transitionRoutes": [ {
+    "intent": "Default Welcome Intent",
+    "triggerFulfillment": {
+    
+    },
+    "name": "96784c48-6d73-49ac-9ef8-e513de791bb7"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "cfba2937-a704-48dd-8d0c-a0841038204d"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "540fb49e-8be9-465e-a6b2-3040e2658def"
+  }, {
+    "event": "Inactivity_prompt",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Are you still there? If we don't hear back from you within *10 Minutes*, we will clear the chat history and start over for your privacy. " ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "09362c27-7531-4af8-a8cb-6bb2373552c8"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "customConfigKey": "6305f9af-efa4-44f1-b97a-a9a98133add5",
+    "languageCode": "en"
+  } ],
+  "multiLanguageSettings": {
+    "enableMultiLanguageDetection": true,
+    "supportedResponseLanguageCodes": [ "en" ]
+  }
+}

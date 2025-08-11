@@ -1,0 +1,47 @@
+{
+  "name": "9d6e047f-0d86-425e-b040-38e782e87225",
+  "displayName": "Contact Query",
+  "description": "Your goal is to help the user's `last_user_utterance` and `conversation` to determine what contact information to provide the user.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "PUBLIC_WEB",
+      "dataStore": "projects/882723528425/locations/us/collections/default_collection/dataStores/uia-layout_1750794776945",
+      "documentProcessingMode": "CHUNKS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1750794796,
+        "nanos": 717963000
+      },
+      "displayName": "uia-layout",
+      "dialogflowAddTime": {
+        "seconds": 1753109544,
+        "nanos": 280000000
+      }
+    } ],
+    "models": {
+      "summarizationModel": {
+      
+      },
+      "rewriterModel": {
+        "model": "default"
+      }
+    },
+    "fallbackPrompt": {
+      "company": "State of Michigan Unemployment Insurance Agency"
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 1
+    },
+    "voiceModeSettings": {
+    
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

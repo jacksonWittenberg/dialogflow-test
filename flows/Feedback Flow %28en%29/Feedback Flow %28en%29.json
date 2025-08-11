@@ -1,0 +1,47 @@
+{
+  "name": "c1dc0857-7f57-4823-ac0a-823a70454b5a",
+  "displayName": "Feedback Flow (en)",
+  "transitionRoutes": [ {
+    "intent": "Default Welcome Intent",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Feedback Request (en)",
+    "name": "e089d8ea-467c-46c4-b338-bc21d8e4ca9a"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "c7d9e06f-3ac2-402b-85b0-0e23e84c42ef",
+    "targetPlaybook": "Conversation Routing"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "899b2295-4e5b-4abb-86ce-e165e289f68e"
+  }, {
+    "event": "Inactivity_prompt",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Are you still there? If we don't hear back from you within *10 Minutes*, we will clear the chat history and start over for your privacy. " ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "46e7ec88-4a94-49bb-b6fd-857de6c5e1fb"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "customConfigKey": "610c7b9f-42b8-4e7f-a5a2-ffd11506b125",
+    "languageCode": "en"
+  } ]
+}

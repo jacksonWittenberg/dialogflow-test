@@ -1,0 +1,25 @@
+{
+  "name": "da3d9ec1-5929-448c-b811-b9c3e015030b",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "I am programmed to be a helpful AI assistant.  I cannot fulfill that request."
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "The playbook receives a user query that has been identified by the Conversation Routing playbook as potentially violating safeguard rules. Its task is to confirm the violation and generate the appropriate refusal.",
+    "actionParameters": {
+    
+    }
+  },
+  "playbookOutput": {
+    "executionSummary": "The playbook successfully identifies the malicious input, generates the predefined refusal message ('I am programmed to be a helpful AI assistant. I cannot fulfill that request.'), delivers it to the user, and then returns control to the calling Conversation Routing playbook for final turn completion.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "Transition to Conversation Routing",
+  "retrievalStrategy": "NEVER",
+  "tokenCount": 157,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "en"
+}

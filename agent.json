@@ -1,0 +1,50 @@
+{
+  "displayName": "LEO - UIA",
+  "defaultLanguageCode": "en",
+  "timeZone": "America/New_York",
+  "enableLogging": true,
+  "projectNumber": 882723528425,
+  "speechToTextSettings": {
+    "enableSpeechAdaptation": true
+  },
+  "enableStackdriverLogging": true,
+  "enableSpellCorrection": true,
+  "advancedSettings": {
+    "audioExportGcsDestination": {
+    
+    },
+    "speechSettings": {
+      "endpointerSensitivity": 90,
+      "noSpeechTimeout": {
+        "seconds": 5
+      }
+    },
+    "playbackInterruptionSettings": {
+    
+    },
+    "loggingSettings": {
+      "enableStackdriverLogging": true,
+      "enableInteractionLogging": true
+    },
+    "speechAdaptationSettings": {
+    
+    }
+  },
+  "speakerIdSettings": {
+  
+  },
+  "genAppBuilderSettings": {
+    "engine": "projects/882723528425/locations/us/collections/default_collection/engines/aa03ed84-a65d-4bed-84ad-1e27ca38b11a-chat-1750875636"
+  },
+  "duplexSettings": {
+  
+  },
+  "answerFeedbackSettings": {
+  
+  },
+  "startPlaybook": "Conversation Routing",
+  "enableMultiLanguageTraining": true,
+  "webClientSettings": {
+    "boxBorderRadius": "0"
+  }
+}

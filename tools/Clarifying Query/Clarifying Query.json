@@ -1,0 +1,44 @@
+{
+  "name": "f2294f88-3218-4a7f-bf54-bbbbb1038bfa",
+  "displayName": "Clarifying Query",
+  "description": "Assess the user's query for ambiguity or broadness, prioritizing cases where the information could vary based on user persona (e.g., employer, student, employee, claimant). If the query is unclear or could pertain to multiple interpretations or personas, your output MUST be a targeted clarifying question designed to guide the user towards a more specific and answerable inquiry.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "PUBLIC_WEB",
+      "dataStore": "projects/882723528425/locations/us/collections/default_collection/dataStores/uia-layout_1750794776945",
+      "documentProcessingMode": "CHUNKS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1750794796,
+        "nanos": 717963000
+      },
+      "displayName": "uia-layout",
+      "dialogflowAddTime": {
+        "seconds": 1753733036,
+        "nanos": 872000000
+      }
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_20_flash_001",
+        "promptText": "Your task is to assess the user's query and the conversation history to determine if a clarifying question is needed. Your output MUST ONLY be a specific clarifying question, or a signal that no clarification is required.\n\n# Response Generation Instructions\n\n## Critical Rules:\n\n### Query Assessment \u0026 Clarification Generation:\n- Analyze the user's $original-query in the full context of $conversation.\n- If the user's query is ambiguous, vague, too broad, or could have multiple interpretations (e.g., pertaining to different types of users or scenarios), you MUST formulate a targeted clarifying question.\n    -   The clarifying question MUST be concise and designed to guide the user towards a more specific and answerable inquiry.\n    -   Examples of clarifying questions:\n        -   \"Which aspect of [topic] do you need help with?\"\n        -   \"Are you referring to [option A] or [option B]?\"\n        -   \"What specific constraints apply to your question about [topic]?\n-   **If the user's query is already clear, specific, and unambiguous, and does NOT require a clarifying question, you MUST return the exact internal signal: `[[NO_CLARIFICATION_NEEDED]]`.**\n\n### Language Awareness:\n-   All internal processing must be done in English.\n\n### Output Format:\n-   **If a clarifying question is generated:** Your entire output MUST be the exact text of the clarifying question\n    -   Example: `To assist you best, could you clarify which aspect of benefits you need help with? For example, are you asking about Option A, Option B, or Option C?`\n-   **If no clarifying question is needed:** Your entire output MUST be the exact internal signal: `[[NO_CLARIFICATION_NEEDED]]`.\n-   You MUST NOT include any other text, explanations, or formatting (like bolding, bullets, URLs) in your output.\n\nSources:\n$sources\n\n$conversation\nHuman: $original-query\nAI:"
+      },
+      "rewriterModel": {
+        "model": "gemini_25_flash",
+        "promptText": "You observe conversations between a human and an AI assistant at the State of Michigan Unemployment Insurance Agency\nYour goal is to perform a search query to help the AI assistant develop a clarifying question to respond to the user's last utterance.\n* The search query MUST be designed to help identify if the user's intent or the answer to their query could vary based on different user personas.\n* Before querying the Data store, you MUST translate the $original-query to English.  This step must NEVER be skipped.\n* Always output the best search query you can, even if you suspect it's not needed.\n* Generate a query that is closely related to the user query\n* Include as much context as necessary from the conversation history.\n* Output a concise, clarifying search query, and nothing else.\n* Don't use quotes or search operators.\n\nConversation History:\n$conversation\nHuman: $original-query\nSearch Query: "
+      }
+    },
+    "groundingSettings": {
+      "groundingConfidence": "LOW"
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 5
+    },
+    "mode": "MODE_CUSTOM"
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

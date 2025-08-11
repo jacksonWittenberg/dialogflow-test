@@ -1,0 +1,65 @@
+{
+  "name": "cb2cdde5-a3bf-4afe-8451-873feb641afa",
+  "displayName": "Bad Response (en)",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "botcopy": [ {
+          "form": {
+            "action": {
+              "message": {
+                "command": "Feedback submitted",
+                "type": "training"
+              }
+            },
+            "fields": [ {
+              "checkboxes": [ {
+                "checkboxLabel": "Not helpful",
+                "parameter": "Not_Helpful"
+              }, {
+                "checkboxLabel": "Not relevant",
+                "parameter": "Not_Relevant"
+              }, {
+                "checkboxLabel": "Other",
+                "parameter": "Other"
+              } ],
+              "expose": true,
+              "fieldType": "checkbox",
+              "groupLabel": "What didn't you like about the response?",
+              "parameter": "feedback_reasons"
+            }, {
+              "expose": true,
+              "helperText": "Please share any additional feedback or comments.",
+              "label": "Additional Comments",
+              "parameter": "comments",
+              "required": false,
+              "type": "textarea"
+            } ],
+            "force": false,
+            "style": "message"
+          }
+        } ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Feedback - Form Submitted",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Form Confirmation (en)",
+    "name": "e18401ac-52ce-4bbc-b8b2-0737d0451a00"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "7fe3f2d9-e41d-4245-975b-c429640a3e23",
+    "targetPlaybook": "Conversation Routing"
+  } ]
+}
