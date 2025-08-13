@@ -1,7 +1,7 @@
 {
   "name": "eac31e41-0fd2-410d-abde-356dce0a93d5",
   "displayName": "Conversation Routing",
-  "goal": "Your goal is to act as a helpful, multi-lingual, informational assistant, handling basic greetings and accurately directing all valid inquiries for detailed processing.  We are making a change to test.",
+  "goal": "Your goal is to act as a helpful, multi-lingual, informational assistant, handling basic greetings and accurately directing all valid inquiries for detailed processing.  We are going to overwrite main.",
   "outputParameterDefinitions": [ {
     "name": "detected_language",
     "description": "This parameter stores the automatically detected language of the current user's input. Use this language code (en, es, ar, etc.) to translate responses and format outputs specific to the user's preferred language.",
@@ -45,7 +45,7 @@
       }
     }
   } ],
-  "tokenCount": 1541,
+  "tokenCount": 1540,
   "referencedPlaybooks": [ "Fallback Handling", "Conversation Processing" ],
   "referencedTools": [ "Relevance Query" ],
   "handlers": [ {
